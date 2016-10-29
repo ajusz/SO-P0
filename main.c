@@ -9,7 +9,7 @@
 void *Hello(void *i)
 {
 	long id = (long)i;
-    printf("Wątek #%ld\n", id);
+	printf("Wątek #%ld\n", id);
 	pthread_exit(NULL);
 	return NULL;
 }
@@ -20,14 +20,14 @@ int main ()
 	int error;
 	long i;
 	for(i=0; i<NUMBER_OF_THREADS; i++)
-    {
+	{
 		error = pthread_create(&threads[i], NULL, Hello, (void *)i);
 		if (error)
 		{
 			printf("BŁĄÐ (przy tworzeniu wątku): %s\n", strerror(error));
 			exit(-1);
-       }
-    }
+		}
+	}
 	for(i=0; i<NUMBER_OF_THREADS; i++)
 	{
 		error = pthread_join(threads[i], NULL);
